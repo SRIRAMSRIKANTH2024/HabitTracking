@@ -2,10 +2,10 @@
   "name": "ai-habit-tracker-backend",
   "version": "1.0.0",
   "description": "Backend server for AI-powered habit tracking and analytics",
-  "main": ".vscode/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node .vscode/server.js",
-    "dev": "nodemon .vscode/server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -23,3 +23,4 @@
     "nodemon": "^3.0.3"
   }
 }
+
