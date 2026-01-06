@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Habit Tracker - Upload Data</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <i class="fa-solid fa-brain"></i>
+        <span>AI Habit Tracker</span>
+      </div>
+      <nav class="nav">
+        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line"></i>Overview</a>
+        <a href="upload.html" class="nav-link active"><i class="fa-solid fa-file-arrow-up"></i>Upload Data</a>
+        <a href="analytics.html" class="nav-link"><i class="fa-solid fa-magnifying-glass-chart"></i>Analytics</a>
+      </nav>
+      <button id="logoutBtn" class="btn ghost-btn sidebar-logout">
+        <i class="fa-solid fa-right-from-brain"></i>Logout
+      </button>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div>
+          <h1>Upload CSV or Excel Data</h1>
+          <p class="subtitle">
+            This feature enables users to upload historical habit data in CSV or Excel format. The system processes and stores the data automatically for analysis and visualization.
+          </p>
+        </div>
+      </header>
+
+      <section class="grid-2">
+        <div class="card">
+          <h2>Upload CSV / Excel</h2>
+          <form id="uploadForm" class="upload-form">
+            <div class="form-group">
+              <label for="dataFile">Select file (.csv, .xlsx)</label>
+              <input type="file" id="dataFile" name="dataFile" accept=".csv,.xlsx" required />
+            </div>
+            <button type="submit" class="btn primary-btn">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload & Import
+            </button>
+            <p class="muted small">
+              Expected columns: <strong>habit_name</strong>, <strong>date</strong> (YYYY-MM-DD), <strong>status</strong> (1 or 0)
+              or <strong>value</strong> & <strong>source</strong> for generic metrics.
+            </p>
+            <p id="uploadMessage" class="form-message"></p>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Manual Data Entry</h2>
+          <form id="manualDataForm" class="compact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="manualValue">Value</label>
+                <input type="number" id="manualValue" placeholder="e.g., 30 (minutes)" required />
+              </div>
+              <div class="form-group">
+                <label for="manualDate">Date</label>
+                <input type="date" id="manualDate" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="manualSource">Source label</label>
+                <input type="text" id="manualSource" placeholder="e.g., manual, app, tracker" required />
+              </div>
+              <div class="form-group align-end">
+                <button type="submit" class="btn secondary-btn">
+                  <i class="fa-solid fa-plus"></i> Save Entry
+                </button>
+              </div>
+            </div>
+            <p id="manualMessage" class="form-message"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

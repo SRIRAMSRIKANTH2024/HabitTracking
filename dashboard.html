@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Habit Tracker - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <i class="fa-solid fa-brain"></i>
+        <span>AI Habit Tracker</span>
+      </div>
+      <nav class="nav">
+        <a href="dashboard.html" class="nav-link active"><i class="fa-solid fa-chart-line"></i>Overview</a>
+        <a href="upload.html" class="nav-link"><i class="fa-solid fa-file-arrow-up"></i>Upload Data</a>
+        <a href="analytics.html" class="nav-link"><i class="fa-solid fa-magnifying-glass-chart"></i>Analytics</a>
+      </nav>
+      <button id="logoutBtn" class="btn ghost-btn sidebar-logout">
+        <i class="fa-solid fa-right-from-brain"></i>Logout
+      </button>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div>
+          <h1 id="dashboardTitle">User Dashboard</h1>
+          <p class="subtitle">
+            The dashboard provides a centralized view of user habits, real-time progress, and intelligent insights. It allows users to manually enter data, upload datasets, and visualize behavioral trends using interactive charts.
+          </p>
+        </div>
+      </header>
+
+      <section class="grid-3">
+        <div class="card">
+          <h2>Real-Time Habit Input</h2>
+          <p class="muted small">
+            Users can add daily habits in real time. The system stores the data securely in the database and updates analytics dynamically.
+          </p>
+          <form id="addHabitForm" class="compact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="habitName">Habit name</label>
+                <input type="text" id="habitName" placeholder="e.g., Morning Workout" required />
+              </div>
+              <div class="form-group">
+                <label for="habitDate">Date</label>
+                <input type="date" id="habitDate" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="habitStatus">Status</label>
+                <select id="habitStatus">
+                  <option value="1">Completed</option>
+                  <option value="0">Missed</option>
+                </select>
+              </div>
+              <div class="form-group align-end">
+                <button type="submit" class="btn primary-btn">
+                  <i class="fa-solid fa-plus"></i> Save Habit
+                </button>
+              </div>
+            </div>
+            <p id="habitMessage" class="form-message"></p>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>AI-Powered Predictive Insights</h2>
+          <p class="muted small">
+            The AI module evaluates historical habit data to predict future performance. Based on behavioral patterns, it generates personalized suggestions to improve consistency and habit success rates.
+          </p>
+          <div id="aiSummary" class="ai-summary">
+            <p class="muted">AI will analyze your recent habit history and estimate your success probability.</p>
+            <button id="refreshAiBtn" class="btn secondary-btn small-btn">
+              <i class="fa-solid fa-robot"></i> Refresh Insights
+            </button>
+            <div id="aiDetails" class="ai-details hidden">
+              <p class="ai-score"><span id="aiScore">--%</span> predicted success</p>
+              <p id="aiRisk" class="ai-risk muted"></p>
+              <p id="aiMessage" class="ai-message"></p>
+              <ul id="aiMetrics" class="ai-metrics"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Smart Reminder System</h2>
+          <p class="muted small">
+            The system sends automated email reminders to users to encourage habit completion and maintain long-term consistency.
+          </p>
+          <button id="testEmailBtn" class="btn secondary-btn small-btn">
+            <i class="fa-solid fa-envelope"></i> Send Test Reminder
+          </button>
+          <p id="emailMessage" class="form-message"></p>
+        </div>
+      </section>
+
+      <section class="grid-2">
+        <div class="card">
+          <h2>Weekly Completion Rate</h2>
+          <canvas id="weeklyChart"></canvas>
+        </div>
+        <div class="card">
+          <h2>Monthly Consistency</h2>
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

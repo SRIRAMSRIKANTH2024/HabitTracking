@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Habit Tracker - Analytics</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <i class="fa-solid fa-brain"></i>
+        <span>AI Habit Tracker</span>
+      </div>
+      <nav class="nav">
+        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line"></i>Overview</a>
+        <a href="upload.html" class="nav-link"><i class="fa-solid fa-file-arrow-up"></i>Upload Data</a>
+        <a href="analytics.html" class="nav-link active"><i class="fa-solid fa-magnifying-glass-chart"></i>Analytics</a>
+      </nav>
+      <button id="logoutBtn" class="btn ghost-btn sidebar-logout">
+        <i class="fa-solid fa-right-from-brain"></i>Logout
+      </button>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div>
+          <h1>Behavioral Analytics & Visualization Dashboard</h1>
+          <p class="subtitle">
+            This section presents graphical insights derived from user habit data. The system analyzes completion rates, consistency patterns, and behavioral trends using data visualization techniques.
+          </p>
+        </div>
+      </header>
+
+      <section class="grid-2">
+        <div class="card">
+          <h2>Performance Distribution</h2>
+          <canvas id="successFailureChart"></canvas>
+        </div>
+        <div class="card">
+          <h2>Weekly Consistency Analysis</h2>
+          <canvas id="streakChart"></canvas>
+        </div>
+      </section>
+
+      <section class="full-width-section">
+        <div class="card">
+          <h2>Key Behavioral Insights</h2>
+          <p class="muted small" style="margin-bottom: 0.5rem;">
+            Habit Completion Rate: Displays the percentage of completed habits over time.<br>
+            Weekly Consistency Analysis: Shows behavioral consistency across weeks.<br>
+            Performance Distribution: Visual comparison between completed and missed habits.
+          </p>
+          <ul id="behaviorList" class="insights-list">
+            <li class="muted">Insights will appear here based on your historical habit data.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
